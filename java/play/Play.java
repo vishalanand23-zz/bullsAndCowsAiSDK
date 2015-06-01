@@ -26,9 +26,6 @@ public class Play {
                 Round round = bullsAndCows.calculate(number, guess);
                 rounds.add(round);
                 numberOfGuesses++;
-                if (numberOfGuesses > 10) {
-                    return;
-                }
                 if (round.getBulls() == numberOfDigits) {
                     totalGuesses = totalGuesses + numberOfGuesses;
                     break;
