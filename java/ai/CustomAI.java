@@ -2,7 +2,6 @@ package ai;
 
 import play.RandomGenerator;
 import play.Round;
-import java.util.*;
 
 import java.util.ArrayList;
 
@@ -12,4 +11,3 @@ public class CustomAI implements AI {
         return new RandomGenerator().generate(numberOfDigits);
     }
 }
-

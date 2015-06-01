@@ -11,6 +11,15 @@ public class Round {
         this.guess = guess;
     }
 
+    @Override
+    public String toString() {
+        return "Round{" +
+                "bulls=" + bulls +
+                ", cows=" + cows +
+                ", guess='" + guess + '\'' +
+                '}';
+    }
+
     public int getBulls() {
         return bulls;
     }

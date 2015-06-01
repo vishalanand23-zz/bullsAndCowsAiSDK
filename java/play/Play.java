@@ -13,9 +13,12 @@ public class Play {
         int alphabetSize = Integer.valueOf(args[0]);
         int numberOfDigits = Integer.valueOf(args[1]);
         int numberOfTries = Integer.valueOf(args[2]);
-        AI aI = new CustomAI();
         for (int i = 0; i < numberOfTries; i++) {
+            AI aI = new CustomAI();
             String number = new RandomGenerator().generate(numberOfDigits);
+            if (number.length() != numberOfDigits) {
+                throw new RuntimeException("Invalid Input");
+            }
             numberOfGuesses = 0;
             ArrayList<Round> rounds = new ArrayList<Round>();
             while (true) {
@@ -23,6 +26,9 @@ public class Play {
                 Round round = bullsAndCows.calculate(number, guess);
                 rounds.add(round);
                 numberOfGuesses++;
+                if (numberOfGuesses > 10) {
+                    return;
+                }
                 if (round.getBulls() == numberOfDigits) {
                     totalGuesses = totalGuesses + numberOfGuesses;
                     break;
