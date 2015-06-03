@@ -23,6 +23,9 @@ public class Play {
             ArrayList<Round> rounds = new ArrayList<Round>();
             while (true) {
                 String guess = aI.guess(numberOfDigits, rounds);
+                if (guess.length() != numberOfDigits) {
+                    throw new RuntimeException("Invalid Input");
+                }
                 Round round = bullsAndCows.calculate(number, guess);
                 rounds.add(round);
                 numberOfGuesses++;
