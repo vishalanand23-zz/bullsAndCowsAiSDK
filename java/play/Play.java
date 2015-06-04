@@ -15,7 +15,7 @@ public class Play {
         int numberOfTries = Integer.valueOf(args[2]);
         ArrayList<Double> roundsArray = new ArrayList<Double>();
         for (int i = 0; i < numberOfTries; i++) {
-            AI aI = new CustomAI3Digit();
+            AI aI = new CustomAI();
             String number = new RandomGenerator().generate(numberOfDigits);
             if (number.length() != numberOfDigits) {
                 throw new RuntimeException("Invalid Input");
