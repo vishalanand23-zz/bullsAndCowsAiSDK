@@ -3,21 +3,26 @@ package play;
 public class BullsAndCows {
 
     public Round calculate(String number, String guess) {
+        int bulls = numberOfBulls(number, guess);
+        int cowsPlusBulls = numberOfCowsPlusBulls(number, guess);
         return new Round(
-                numberOfBulls(number, guess),
-                numberOfCows(number, guess),
+                bulls,
+                cowsPlusBulls - bulls,
                 guess);
     }
 
-    private int numberOfCows(String number, String guess) {
+    private int numberOfCowsPlusBulls(String number, String guess) {
         int cowsPlusBulls = 0;
+        int inGuess[] = new int[10];
         for (int i = 0; i < number.length(); i++) {
-            String a = guess.charAt(i) + "";
-            if (number.contains(a)) {
+            inGuess[Character.getNumericValue(guess.charAt(i))] = 1;
+        }
+        for (int i = 0; i < number.length(); ++i) {
+            if (inGuess[Character.getNumericValue(number.charAt(i))] == 1) {
                 cowsPlusBulls++;
             }
         }
-        return cowsPlusBulls - numberOfBulls(number, guess);
+        return cowsPlusBulls;
     }
 
     private int numberOfBulls(String number, String guess) {

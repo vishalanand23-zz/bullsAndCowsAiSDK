@@ -45,6 +45,6 @@ public class Play {
         System.out.println(averageGuesses);
         System.out.println(roundsArray.get(0));
         System.out.println(roundsArray.get(roundsArray.size() - 1));
-        System.out.println(roundsArray.get(Integer.valueOf(roundsArray.size()/2 - 1)));
+        System.out.println(roundsArray.get(Integer.valueOf((roundsArray.size() - 1) / 2)));
     }
 }
