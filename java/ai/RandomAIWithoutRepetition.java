@@ -6,7 +6,13 @@ import play.Round;
 import java.util.ArrayList;
 
 public class RandomAIWithoutRepetition implements AI {
-    public String guess(int numberOfDigits, ArrayList<Round> rounds) {
+    private int numberOfDigits;
+
+    public RandomAIWithoutRepetition(int numberOfDigits) {
+
+        this.numberOfDigits = numberOfDigits;
+    }
+    public String guess(ArrayList<Round> rounds) {
         boolean selected = true;
         String guess = new RandomGenerator().generate(numberOfDigits);
         for (Round round : rounds) {
@@ -18,6 +24,6 @@ public class RandomAIWithoutRepetition implements AI {
         if (selected) {
             return guess;
         }
-        return guess(numberOfDigits, rounds);
+        return guess(rounds);
     }
 }

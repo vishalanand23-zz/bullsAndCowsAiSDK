@@ -7,7 +7,13 @@ import java.util.ArrayList;
 
 public class RandomAI implements AI {
 
-    public String guess(int numberOfDigits, ArrayList<Round> rounds) {
+    private int numberOfDigits;
+
+    public RandomAI(int numberOfDigits) {
+        this.numberOfDigits = numberOfDigits;
+    }
+
+    public String guess(ArrayList<Round> rounds) {
         return new RandomGenerator().generate(numberOfDigits);
     }
 }

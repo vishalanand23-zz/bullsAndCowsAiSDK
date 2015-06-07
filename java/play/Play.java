@@ -8,6 +8,7 @@ import java.util.Collections;
 
 public class Play {
     public static void main(String[] args) throws IOException {
+        long initialTime = System.currentTimeMillis();
         BullsAndCows bullsAndCows = new BullsAndCows();
         double numberOfGuesses;
         int alphabetSize = Integer.valueOf(args[0]);
@@ -15,7 +16,7 @@ public class Play {
         int numberOfTries = Integer.valueOf(args[2]);
         ArrayList<Double> roundsArray = new ArrayList<Double>();
         for (int i = 0; i < numberOfTries; i++) {
-            AI aI = new CustomAI();
+            AI aI = new CustomAI2Digit(numberOfDigits);
             String number = new RandomGenerator().generate(numberOfDigits);
             if (number.length() != numberOfDigits) {
                 throw new RuntimeException("Invalid Input");
@@ -23,11 +24,12 @@ public class Play {
             numberOfGuesses = 0.0;
             ArrayList<Round> rounds = new ArrayList<Round>();
             while (true) {
-                String guess = aI.guess(numberOfDigits, rounds);
+                String guess = aI.guess(rounds);
                 if (guess.length() != numberOfDigits) {
                     throw new RuntimeException("Invalid Input");
                 }
                 Round round = bullsAndCows.calculate(number, guess);
+//                System.out.println(round);
                 rounds.add(round);
                 numberOfGuesses++;
                 if (round.getBulls() == numberOfDigits) {
@@ -46,5 +48,6 @@ public class Play {
         System.out.println(roundsArray.get(0));
         System.out.println(roundsArray.get(roundsArray.size() - 1));
         System.out.println(roundsArray.get(Integer.valueOf((roundsArray.size() - 1) / 2)));
+        System.out.println(System.currentTimeMillis() - initialTime);
     }
 }
