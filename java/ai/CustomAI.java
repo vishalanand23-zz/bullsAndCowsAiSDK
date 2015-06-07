@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class CustomAI implements AI {
 
-    private int numberOfDigits;
+    private final int numberOfDigits;
 
     public CustomAI(int numberOfDigits) {
         this.numberOfDigits = numberOfDigits;

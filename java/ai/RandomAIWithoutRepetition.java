@@ -6,7 +6,7 @@ import play.Round;
 import java.util.ArrayList;
 
 public class RandomAIWithoutRepetition implements AI {
-    private int numberOfDigits;
+    private final  int numberOfDigits;
 
     public RandomAIWithoutRepetition(int numberOfDigits) {
 

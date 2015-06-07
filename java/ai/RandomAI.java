@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class RandomAI implements AI {
 
-    private int numberOfDigits;
+    private final int numberOfDigits;
 
     public RandomAI(int numberOfDigits) {
         this.numberOfDigits = numberOfDigits;

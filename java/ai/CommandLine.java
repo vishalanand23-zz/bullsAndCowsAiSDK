@@ -9,12 +9,14 @@ import java.util.ArrayList;
 
 public class CommandLine implements AI {
     private BufferedReader br;
+    private final int numberOfDigits;
 
-    public CommandLine() {
+    public CommandLine(int numberOfDigits) {
+        this.numberOfDigits = numberOfDigits;
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public String guess(int numberOfDigits, ArrayList<Round> rounds) throws IOException {
+    public String guess(ArrayList<Round> rounds) throws IOException {
         System.out.println("Take a guess. Number of guesses yet = " + rounds.size());
         int i = 1;
         for (Round round : rounds) {
